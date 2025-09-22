@@ -1,0 +1,50 @@
+/* === HERO: фиксируем 70% (текст) / 30% (слайдер) === */
+.hero__wrap{
+  display:grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 3fr); /* ~70/30 */
+  align-items:center;
+  gap:2rem;
+  padding:6rem 0 4rem;
+}
+
+/* Правая колонка со слайдером — компактная, не растягивается выше контейнера */
+.hero__slider{ position:relative; width:100%; max-width:100%; }
+.hero-swiper{
+  height: clamp(22rem, 32vh, 32rem);   /* задай свою высоту, если нужно больше/меньше */
+  border-radius: var(--radius);
+  outline:1px solid #1c1e22;
+  overflow:hidden;
+  box-shadow: 0 1.2rem 4rem rgba(0,0,0,.45);
+}
+.hero-swiper .swiper-slide{
+  height:100%;
+  background: radial-gradient(45rem 18rem at 60% 40%, #1b1c21 20%, #0d0e11 70%);
+}
+.hero-swiper img{
+  width:100%; height:100%; object-fit:cover; display:block;
+  filter:contrast(1.05) saturate(1.05);
+}
+
+/* Адаптив: 60/40 на средних и стек на мобильных */
+@media (max-width:1200px){
+  .hero__wrap{ grid-template-columns: minmax(0, 6fr) minmax(0, 4fr); }
+  .hero-swiper{ height: clamp(20rem, 30vh, 28rem); }
+}
+@media (max-width:900px){
+  .hero__wrap{ grid-template-columns: 1fr; }
+  .hero-swiper{ height: clamp(20rem, 38vh, 30rem); }
+}
+
+
+/* Контейнер слайдера держит аспект 16:9 */
+.hero__slider{
+  position:relative;
+  width:100%;
+  aspect-ratio: 16 / 9;   /* фиксируем пропорцию */
+  max-height: 32rem;      /* чтобы не рос бесконечно; можно 34–36rem */
+}
+
+/* У Swiper высота = 100% от контейнера с аспектом */
+.hero-swiper{ height:100%; border-radius:var(--radius); overflow:hidden; outline:1px solid #1c1e22; }
+.hero-swiper .swiper-slide{ height:100%; }
+.hero-swiper img{ width:100%; height:100%; object-fit:cover; display:block; }

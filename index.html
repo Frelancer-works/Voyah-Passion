@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Voyah Passion — аренда премиального электрокара с водителем | Бизнес-трансфер</title>
+
+  <!-- Primary SEO -->
+  <meta name="description" content="Аренда премиального электрокара Voyah Passion с водителем: бизнес-трансферы, аэропорт, свадьбы, VIP-события. Прозрачные тарифы, реальные фото, быстрая бронь." />
+  <link rel="canonical" href="https://example.com/voyah-passion" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Voyah Passion — премиальный электрокар с водителем" />
+  <meta property="og:description" content="Современная альтернатива Mercedes и BMW. Стиль, тишина и комфорт премиум-класса. Прозрачные тарифы и быстрая бронь." />
+  <meta property="og:image" content="https://example.com/img/og-voyah.jpg" />
+  <meta property="og:url" content="https://example.com/voyah-passion" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Colors & Fonts -->
+  <meta name="theme-color" content="#0b0b0c" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    :root{
+      --bg:#0b0b0c;
+      --bg-2:#141416;
+      --text:#e9eaec;
+      --muted:#a9adb7;
+      --line:#26272b;
+      --accent:#c8ff00;       /* «электрический» лайм */
+      --accent-2:#9be600;
+      --danger:#ff5252;
+      --radius:1.2rem;
+      --shadow:0 0.2rem 1.2rem rgba(0,0,0,.35);
+      --step:1rem;            /* базовый модуль */
+      font-size:62.5%;        /* 1rem = 10px */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:linear-gradient(180deg,#0b0b0c, #111215 60%, #0b0b0c);
+      color:var(--text);font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height:1.6; letter-spacing:.01em;
+    }
+    img{max-width:100%; display:block}
+    a{color:var(--text); text-decoration:none}
+    .container{width:min(120rem, 100%); margin:0 auto; padding:0 2rem}
+    .grid{display:grid; gap:2rem}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:.8rem;
+      padding:1.2rem 2rem; border-radius:999rem; background:var(--accent); color:#121212;
+      font-weight:600; border:0; cursor:pointer; box-shadow:var(--shadow);
+      transition:transform .15s ease, filter .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover{ transform:translateY(-.1rem); filter:saturate(110%) }
+    .btn.secondary{ background:#1e1f23; color:var(--text); border:1px solid #2a2c31 }
+    .btn.ghost{ background:transparent; border:1px solid var(--line); color:var(--text) }
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(.6rem);
+      background:rgba(10,10,12,.6); border-bottom:1px solid #15161a;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:1.2rem 0}
+    .brand{display:flex; align-items:center; gap:1.2rem}
+    .brand__dot{width:1rem; height:1rem; border-radius:50%; background:var(--accent); box-shadow:0 0 .8rem var(--accent)}
+    .nav a{opacity:.85}
+    .nav a:hover{opacity:1}
+    .nav__links{display:flex; gap:2rem; align-items:center}
+    .nav__cta{display:flex; gap:1rem; align-items:center}
+    .tel{font-variant-numeric:lining-nums; font-weight:600}
+
+    /* Hero */
+    .hero{position:relative; overflow:hidden}
+    .hero__wrap{display:grid; gap:3rem; grid-template-columns: 1.2fr .8fr; align-items:center; padding:6rem 0 4rem}
+    .hero__eyebrow{color:var(--muted); font-weight:600; text-transform:uppercase; letter-spacing:.06em}
+    .h1{font-family:Montserrat, Inter, sans-serif; font-weight:700; font-size:4rem; line-height:1.15; margin:.6rem 0 1.2rem}
+    .h1 .accent{color:var(--accent)}
+    .lead{color:#cfd2d8; font-size:1.7rem}
+    .hero__cta{display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem}
+    .hero__img{
+      border-radius:var(--radius); background:radial-gradient(45rem 18rem at 60% 40%, #1b1c21 20%, #0d0e11 70%);
+      outline:1px solid #1c1e22; overflow:hidden; box-shadow:0 1.2rem 4rem rgba(0,0,0,.45)
+    }
+    .labels{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.6rem}
+    .chip{padding:.6rem 1.2rem; border:1px solid var(--line); border-radius:999rem; color:#cfd2d8; font-size:1.3rem}
+
+    /* “Для кого” */
+    .forwho{padding:4rem 0 1rem}
+    .forwho__grid{grid-template-columns:repeat(4,1fr)}
+    .card{
+      background:var(--bg-2); border:1px solid var(--line); border-radius:1.2rem; padding:2rem; min-height:12rem;
+      display:flex; flex-direction:column; gap:1rem; justify-content:center; text-align:center
+    }
+    .card .emoji{font-size:2.4rem}
+    .card h3{margin:0; font-weight:600}
+
+    /* УТП */
+    .features{padding:3rem 0}
+    .features__grid{grid-template-columns:repeat(3,1fr)}
+    .feature{
+      background:linear-gradient(180deg, #121317, #101114);
+      border:1px solid var(--line); border-radius:1.2rem; padding:2rem; display:grid; gap:.6rem
+    }
+    .feature h4{margin:.4rem 0}
+
+    /* Галерея */
+    .gallery{padding:3rem 0}
+    .gallery__rail{display:grid; grid-template-columns:repeat(6, minmax(16rem,1fr)); gap:1rem}
+    .ph{
+      position:relative; border-radius:1rem; overflow:hidden; aspect-ratio:16/10; background:#0e0f12; border:1px solid #1e2025; cursor:pointer
+    }
+    .ph img{width:100%; height:100%; object-fit:cover; opacity:.92; transition:opacity .2s ease, transform .2s ease}
+    .ph:hover img{opacity:1; transform:scale(1.02)}
+
+    /* Тарифы */
+    .pricing{padding:3rem 0}
+    .pricing__grid{grid-template-columns:repeat(4,1fr)}
+    .price{
+      background:linear-gradient(180deg, #111216, #0f1013); border:1px solid var(--line); border-radius:1.2rem; padding:2rem; display:grid; gap:1rem
+    }
+    .price h4{margin:0}
+    .price .num{font-size:2rem; font-weight:700}
+    .badge{display:inline-block; padding:.4rem .8rem; border-radius:.6rem; background:#16181c; border:1px solid #2a2d33; color:#cfd2d8; font-size:1.2rem}
+
+    /* Отзывы */
+    .reviews{padding:3rem 0}
+    .quote{
+      background:#101114; border:1px solid var(--line); border-radius:1.2rem; padding:1.6rem
+    }
+    .quote p{margin:0}
+
+    /* Формы */
+    .form{background:#101114; border:1px solid var(--line); border-radius:1.2rem; padding:2rem; display:grid; gap:1.2rem}
+    .row{display:grid; gap:1rem; grid-template-columns:repeat(2,1fr)}
+    label{font-size:1.3rem; color:#cfd2d8}
+    input, textarea, select{
+      width:100%; padding:1.2rem 1.4rem; border-radius:.8rem; border:1px solid #2a2c31; background:#0e0f12; color:var(--text);
+      outline:none; transition:border-color .2s ease, box-shadow .2s ease
+    }
+    input:focus, textarea:focus, select:focus{border-color:var(--accent-2); box-shadow:0 0 0 .3rem rgba(200,255,0,.12)}
+    .help{color:var(--muted); font-size:1.3rem}
+
+    /* FAQ */
+    .faq{padding:3rem 0}
+    details{
+      border:1px solid var(--line); border-radius:1rem; padding:1.2rem 1.6rem; background:#0f1013
+    }
+    details+details{margin-top:1rem}
+    summary{cursor:pointer; font-weight:600; list-style:none}
+    summary::-webkit-details-marker{display:none}
+
+    /* CTA финал */
+    .cta{position:relative; padding:4rem 0 6rem}
+    .cta__box{
+      display:grid; gap:1.6rem; justify-items:center; text-align:center; background:radial-gradient(60rem 30rem at 50% 0%, rgba(200,255,0,.08), transparent 60%);
+      border:1px solid #1c1e22; border-radius:1.2rem; padding:3rem
+    }
+
+    /* Footer */
+    footer{border-top:1px solid #15161a; padding:3rem 0; color:#b7bbc3}
+
+    /* Headings */
+    h2{font-family:Montserrat, Inter, sans-serif; font-size:2.6rem; margin:0 0 1.2rem}
+    h3{font-size:1.8rem; margin:0 0 .6rem}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero__wrap{grid-template-columns:1fr; padding:4rem 0 2rem}
+      .forwho__grid, .features__grid, .pricing__grid{grid-template-columns:repeat(2,1fr)}
+      .row{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .forwho__grid, .features__grid, .pricing__grid{grid-template-columns:1fr}
+      .h1{font-size:3rem}
+      .nav__links{display:none}
+    }
+
+    /* Lightbox */
+    .lightbox{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.7); z-index:100}
+    .lightbox.is-open{display:grid}
+    .lightbox__img{max-width:min(96vw,120rem); max-height:84vh; border-radius:1rem; box-shadow:var(--shadow)}
+    .close{position:absolute; top:2rem; right:2rem}
+  </style>
+
+  <!-- Schema.org (Service + LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Аренда премиального электрокара Voyah Passion с водителем",
+    "areaServed":"Минск и область",
+    "provider":{
+      "@type":"LocalBusiness",
+      "name":"LuxRide",
+      "telephone":"+375 (29) 000-00-00",
+      "address":{"@type":"PostalAddress","addressLocality":"Минск","addressCountry":"BY"}
+    },
+    "offers":{
+      "@type":"AggregateOffer",
+      "priceCurrency":"RUB",
+      "lowPrice":"5000",
+      "highPrice":"30000"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="container nav" role="navigation" aria-label="Основная навигация">
+    <div class="brand">
+      <span class="brand__dot" aria-hidden="true"></span>
+      <strong>LuxRide</strong>
+    </div>
+    <nav class="nav__links">
+      <a href="#tariffs">Тарифы</a>
+      <a href="#features">Преимущества</a>
+      <a href="#gallery">Фото</a>
+      <a href="#book">Бронирование</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav__cta">
+      <a class="tel" href="tel:+375290000000">+7 (495) 000-00-00</a>
+      <a class="btn" href="#book" aria-label="Забронировать сейчас">Забронировать</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__wrap">
+    <div>
+      <div class="hero__eyebrow">Премиальный электроседан • 4 пассажира • Водитель</div>
+      <h1 id="hero-title" class="h1">Voyah Passion — <span class="accent">аренда с водителем</span> для бизнес-трансфера и особых событий</h1>
+      <p class="lead">Современная альтернатива Mercedes и BMW. Стиль, тишина и комфорт премиум-класса. Подача вовремя, водитель в деловом стиле.</p>
+      <div class="labels">
+        <span class="chip">Wi-Fi</span><span class="chip">USB-C/220V</span><span class="chip">2 чемодана + РК</span><span class="chip">ADAS безопасность</span>
+      </div>
+      <div class="hero__cta">
+        <a class="btn" href="#book">Забронировать</a>
+        <a class="btn secondary" href="#tariffs">Узнать тарифы</a>
+      </div>
+    </div>
+
+    <!-- Swiper slider -->
+    <div class="hero__slider" aria-label="Галерея электрокаров">
+      <div class="swiper hero-swiper">
+        <div class="swiper-wrapper">
+          <!-- 1. Voyah Passion -->
+          <div class="swiper-slide">
+            <img loading="lazy" src="./car.webp"
+                 alt="Mercedes-Benz EQS — электрический бизнес-класс" />
+          </div>
+          <!-- 2. Mercedes-Benz EQS -->
+          <div class="swiper-slide">
+            <img loading="eager" src="./voyash.webp"
+                 alt="Voyah Passion — светлый кузов, трёхчетвертной ракурс" />
+          </div>
+          <!-- 3. BMW i7 -->
+          <div class="swiper-slide">
+            <img loading="lazy" src="./bmw.webp"
+                 alt="BMW i7 — современный электрический седан" />
+          </div>
+          <!-- 4. Audi e-tron GT -->
+          <div class="swiper-slide">
+            <img loading="lazy" src="./e-tron.webp"
+                 alt="Audi e-tron GT — спортивный электрокар" />
+          </div>
+          <!-- 5. Porsche Taycan -->
+          <div class="swiper-slide">
+            <img loading="lazy" src="./porshe.webp"
+                 alt="Porsche Taycan — премиальный электроспорт" />
+          </div>
+        </div>
+
+        <!-- Управление -->
+        <div class="hero-pagination" aria-label="Навигация по слайдам"></div>
+        <button class="hero-nav prev" aria-label="Предыдущий слайд">‹</button>
+        <button class="hero-nav next" aria-label="Следующий слайд">›</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Для кого -->
+  <section class="forwho" aria-labelledby="forwho-title">
+    <div class="container">
+      <h2 id="forwho-title">Для кого и для чего</h2>
+      <div class="grid forwho__grid">
+        <div class="card"><div class="emoji">✈️</div><h3>Аэропорт</h3><p class="help">Встреча с табличкой, трекинг рейса, 30 мин ожидания.</p></div>
+        <div class="card"><div class="emoji">🤝</div><h3>Бизнес-встречи</h3><p class="help">Тихий салон для звонков и подготовки.</p></div>
+        <div class="card"><div class="emoji">💍</div><h3>Свадьбы</h3><p class="help">Светлый кузов красиво смотрится на фото.</p></div>
+        <div class="card"><div class="emoji">🎉</div><h3>VIP-события</h3><p class="help">Event-сопровождение, конференции, PR-съёмки.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УТП -->
+  <section id="features" class="features" aria-labelledby="features-title">
+    <div class="container">
+      <h2 id="features-title">Преимущества Voyah Passion</h2>
+      <div class="grid features__grid">
+        <div class="feature"><h4>Просторный салон</h4><p>Кожа, премиальная подсветка, панорамная крыша. Возможность вытянуть ноги на заднем ряду.</p></div>
+        <div class="feature"><h4>Элегантный кузов</h4><p>Статусный внешний вид — сильнее стандартного бизнес-седана. Подача только в идеальном состоянии.</p></div>
+        <div class="feature"><h4>Комфорт пассажира</h4><p>Массаж, вентиляция/обогрев всех сидений, тишина электродвижения, аккуратный стиль вождения.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Галерея -->
+  <section id="gallery" class="gallery" aria-labelledby="gallery-title">
+    <div class="container">
+      <h2 id="gallery-title">Фото-галерея</h2>
+      <div class="gallery__rail">
+        <!-- ЗАМЕНИ ПЛЕЙСХОЛДЕРЫ НА РЕАЛЬНЫЕ ФОТО VOYAH PASSION -->
+        <a class="ph" href="./orig.jpeg"><img src="./orig.jpeg" alt="Экстерьер у отеля"></a>
+        <a class="ph" href="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=2000&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=900&auto=format&fit=crop" alt="Интерьер, подсветка"></a>
+        <a class="ph" href="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2000&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=900&auto=format&fit=crop" alt="Профиль авто"></a>
+        <a class="ph" href="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=2000&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=900&auto=format&fit=crop" alt="Задний ряд сидений"></a>
+        <a class="ph" href="https://images.unsplash.com/photo-1543465077-db45d34b88a5?q=80&w=2000&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1543465077-db45d34b88a5?q=80&w=900&auto=format&fit=crop" alt="Багажник"></a>
+        <a class="ph" href="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=2000&auto=format&fit=crop"><img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=900&auto=format&fit=crop" alt="Интерьер детали"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Тарифы -->
+  <section id="tariffs" class="pricing" aria-labelledby="pricing-title">
+    <div class="container">
+      <h2 id="pricing-title">Прозрачные тарифы</h2>
+      <div class="grid pricing__grid">
+        <div class="price">
+          <div class="badge">Город (почасово)</div>
+          <h4>Маршруты по городу</h4>
+          <div class="num">от 5 000 ₽/час</div>
+          <p class="help">Минимальный заказ 2–3 часа. Ожидание включено по регламенту. Вода/зарядки.</p>
+          <a class="btn" href="#book">Забронировать</a>
+        </div>
+        <div class="price">
+          <div class="badge">Аэропорт</div>
+          <h4>Трансфер ⇄ аэропорт</h4>
+          <div class="num">от 10 000 ₽</div>
+          <p class="help">Встреча с табличкой, трекинг рейса, 30 мин ожидания бесплатно.</p>
+          <a class="btn" href="#book">Заказать трансфер</a>
+        </div>
+        <div class="price">
+          <div class="badge">Свадьбы</div>
+          <h4>Пакеты 4–6 часов</h4>
+          <div class="num">от 20 000 ₽</div>
+          <p class="help">Украшение по запросу, фото-паузы включены.</p>
+          <a class="btn" href="#book">Забронировать дату</a>
+        </div>
+        <div class="price">
+          <div class="badge">Long-rent</div>
+          <h4>Долгосрочная аренда</h4>
+          <div class="num">по запросу</div>
+          <p class="help">Фикс/помесячно, персональный водитель, закрывающие документы.</p>
+          <a class="btn" href="#book">Обсудить</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма бронирования (№1) -->
+  <section id="book" class="container" aria-labelledby="book-title" style="padding: 2rem 0 3rem">
+    <h2 id="book-title">Забронировать Voyah Passion</h2>
+    <form class="form" id="formTop" novalidate>
+      <div class="row">
+        <div>
+          <label for="name1">Имя</label>
+          <input id="name1" name="name" required autocomplete="name" placeholder="Иван Иванов" />
+        </div>
+        <div>
+          <label for="tel1">Телефон</label>
+          <input id="tel1" name="tel" required inputmode="tel" placeholder="+375 (__) ___-__-__" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label for="date1">Дата</label>
+          <input id="date1" name="date" type="date" required />
+        </div>
+        <div>
+          <label for="time1">Время</label>
+          <input id="time1" name="time" type="time" required />
+        </div>
+      </div>
+      <div>
+        <label for="type1">Сценарий</label>
+        <select id="type1" name="type">
+          <option>Трансфер в аэропорт</option>
+          <option>Бизнес-встреча</option>
+          <option>Свадьба/торжество</option>
+          <option>VIP-мероприятие</option>
+          <option>Съёмка/PR</option>
+          <option>Долгосрочная аренда</option>
+        </select>
+      </div>
+      <div>
+        <label for="comment1">Маршрут / комментарий</label>
+        <textarea id="comment1" name="comment" rows="4" placeholder="Отель → Офис, подача к 10:00…"></textarea>
+      </div>
+      <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap">
+        <button class="btn" type="submit">Отправить заявку</button>
+        <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">Написать в WhatsApp</a>
+        <span class="help">Нажимая «Отправить», вы соглашаетесь с обработкой персональных данных.</span>
+      </div>
+      <p class="help" id="formTopMsg" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <h2 id="reviews-title">Отзывы клиентов</h2>
+      <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="quote"><p>«На свадьбе машина смотрелась шикарно! Гости в восторге.» — Екатерина</p></div>
+        <div class="quote"><p>«Встречал партнёров — впечатление сильнее, чем от Mercedes.» — Андрей</p></div>
+        <div class="quote"><p>«Очень тихо и удобно, водитель профессионал. Теперь езжу только на Voyah.» — Илья</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="faq" aria-labelledby="faq-title">
+    <div class="container">
+      <h2 id="faq-title">Условия аренды и ответы на вопросы</h2>
+      <details><summary>Оплата и документы</summary><p class="help">Наличная/безналичная. Для юрлиц — договор, счёт, акт. Отсрочка оплаты до 7 дней по соглашению.</p></details>
+      <details><summary>Зона обслуживания</summary><p class="help">Минск и область. Межгород по договорённости. Платные дороги/паркинг — по чекам.</p></details>
+      <details><summary>Ожидание и простой</summary><p class="help">Почасовой тариф включает ожидание. Трансфер — 30 мин бесплатно, далее почасовой расчёт.</p></details>
+      <details><summary>Отмена и перенос</summary><p class="help">За 24 часа — бесплатно. В день поездки — 1 час стоимости (минималка).</p></details>
+      <details><summary>Свадебные и VIP-заезды</summary><p class="help">Украшение автомобиля по запросу. Фото-паузы входят в пакет.</p></details>
+      <details><summary>Безопасность</summary><p class="help">Регулярный техконтроль. Трезвый и аккуратный стиль вождения. Детское кресло по запросу.</p></details>
+    </div>
+  </section>
+
+  <!-- CTA финал + форма (№2) -->
+  <section class="cta" aria-labelledby="cta-title">
+    <div class="container">
+      <div class="cta__box">
+        <h2 id="cta-title">Сделайте свою поездку особенной. Выберите Voyah Passion</h2>
+        <p class="help">Ответим в течение рабочего дня. Для срочных заказов — звоните.</p>
+        <form class="form" id="formBottom" style="width:min(72rem,100%)" novalidate>
+          <div class="row">
+            <div>
+              <label for="name2">Имя</label>
+              <input id="name2" name="name" required />
+            </div>
+            <div>
+              <label for="tel2">Телефон</label>
+              <input id="tel2" name="tel" required inputmode="tel" />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="date2">Дата</label>
+              <input id="date2" name="date" type="date" required />
+            </div>
+            <div>
+              <label for="time2">Время</label>
+              <input id="time2" name="time" type="time" required />
+            </div>
+          </div>
+          <div>
+            <label for="comment2">Комментарий</label>
+            <textarea id="comment2" name="comment" rows="3" placeholder="Маршрут, адрес подачи…"></textarea>
+          </div>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap">
+            <button class="btn" type="submit">Забронировать Voyah Passion</button>
+            <a class="btn ghost" href="https://wa.me/0000000000" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+          <p class="help" id="formBottomMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+    <div aria-hidden="true" style="position:absolute; inset:0; pointer-events:none; background:
+      radial-gradient(50rem 20rem at 50% 100%, rgba(200,255,0,.07), transparent 60%)"></div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container grid" style="grid-template-columns:1fr auto">
+    <div>
+      <strong>LuxRide</strong> — премиальные поездки на электрокарах. Voyah Passion — аренда с водителем.
+      <div class="help">© 2025 • Москва • <a href="#">Политика конфиденциальности</a></div>
+    </div>
+    <div class="help">+7 (495) 000-00-00<br>sales@example.com</div>
+  </div>
+</footer>
+
+<!-- Lightbox & basic interactivity -->
+<div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+  <button class="btn secondary close" aria-label="Закрыть галерею" onclick="lbHide()">✕</button>
+  <img class="lightbox__img" id="lbImg" alt="">
+</div>
+
+<script>
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', e=>{
+      const id=a.getAttribute('href').slice(1);
+      const el=document.getElementById(id);
+      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+    });
+  });
+
+  // Lightbox
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.gallery .ph').forEach(ph=>{
+    ph.addEventListener('click', e=>{
+      e.preventDefault();
+      lbImg.src=ph.getAttribute('href');
+      lb.classList.add('is-open');
+    });
+  });
+  function lbHide(){ lb.classList.remove('is-open'); lbImg.src=''; }
+  lb.addEventListener('click', e=>{ if(e.target===lb) lbHide(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') lbHide(); });
+
+  // Forms (demo)
+  function wireForm(formId, msgId){
+    const f=document.getElementById(formId);
+    const out=document.getElementById(msgId);
+    f.addEventListener('submit', e=>{
+      e.preventDefault();
+      const ok=[...f.querySelectorAll('[required]')].every(i=>i.value.trim().length>0);
+      if(!ok){ out.textContent='Проверьте обязательные поля.'; out.style.color='var(--danger)'; return; }
+      out.textContent='Спасибо! Заявка отправлена. Мы свяжемся с вами.'; out.style.color='var(--accent)';
+      f.reset();
+    });
+  }
+  wireForm('formTop','formTopMsg');
+  wireForm('formBottom','formBottomMsg');
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="./script.js"></script>
+</body>
+</html>
